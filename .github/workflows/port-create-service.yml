@@ -20,7 +20,7 @@ jobs:
   scaffold-service:
     runs-on: ubuntu-latest
     env:
-      ORG_NAME: sivan-org
+      ORG_NAME: <Your ORG name>
       PORT_RUN_ID: ${{ fromJson(inputs.port_context).runId }}
 
     steps:
@@ -58,12 +58,12 @@ jobs:
           clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
           baseUrl: https://api.getport.io
           operation: UPSERT
-          identifier: "${{ env.ORG_NAME }}/${{ inputs.service_name }}_service"
-          title: "$${{ env.ORG_NAME }}/{{ inputs.service_name }} Service"
+          identifier: "${{ inputs.service_name }}_service"
+          title: "${{ inputs.service_name }} Service"
           blueprint: "service"
           relations: |
             {
-              "repository": "${{ env.ORG_NAME }}/${{ inputs.service_name }}"
+              "repository": "${{ inputs.service_name }}"
             }
 
       - name: Create a log message
