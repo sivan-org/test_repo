@@ -58,8 +58,8 @@ jobs:
           clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
           baseUrl: https://api.getport.io
           operation: UPSERT
-          identifier: "${{ inputs.service_name }}_service"
-          title: "${{ inputs.service_name }} Service"
+          identifier: "${{ env.ORG_NAME }}/${{ inputs.service_name }}_service"
+          title: "$${{ env.ORG_NAME }}/{{ inputs.service_name }} Service"
           blueprint: "service"
           relations: |
             {
