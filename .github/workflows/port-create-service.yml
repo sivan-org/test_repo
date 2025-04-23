@@ -49,21 +49,6 @@ jobs:
           blueprintIdentifier: "githubRepository"
           organizationName: ${{ env.ORG_NAME }}
 
-      - name: Create Service in Port with Repository Relation
-        uses: port-labs/port-github-action@v1
-        with:
-          clientId: ${{ secrets.PORT_CLIENT_ID }}
-          clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
-          baseUrl: https://api.getport.io
-          operation: UPSERT
-          identifier: "${{ inputs.service_name }}_service"
-          title: "${{ inputs.service_name }} Service"
-          blueprint: "service"
-          relations: |
-            {
-              "repository": "${{ env.PORT_RUN_ID }}/${{ inputs.service_name }}"
-            }
-
       - name: Create a log message
         uses: port-labs/port-github-action@v1
         with:
