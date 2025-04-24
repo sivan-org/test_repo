@@ -20,7 +20,7 @@ jobs:
   scaffold-service:
     runs-on: ubuntu-latest
     env:
-      ORG_NAME: sivan-org
+      ORG_NAME: <Your ORG name>
       PORT_RUN_ID: ${{ fromJson(inputs.port_context).runId }}
 
     steps:
@@ -50,6 +50,7 @@ jobs:
           organizationName: ${{ env.ORG_NAME }}
           createPortEntity: false
 
+
       - name: Create Service in Port with Repository Relation
         uses: port-labs/port-github-action@v1
         with:
@@ -74,4 +75,3 @@ jobs:
           operation: PATCH_RUN
           runId: ${{ env.PORT_RUN_ID }}
           logMessage: "Finished scaffolding of service and repository: ${{ inputs.service_name }}"
-
