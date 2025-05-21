@@ -74,4 +74,4 @@ jobs:
           baseUrl: https://api.getport.io
           operation: PATCH_RUN
           runId: ${{ fromJson(inputs.port_context).runId }}
-          logMessage: Pull request created successfully for "${{ inputs.name }}" 🚀
+          logMessage: Pull request created successfully for "${{ inputs.name }}" 🚀 This is feature-x branch
